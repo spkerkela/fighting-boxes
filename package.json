@@ -1,0 +1,19 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "build": "webpack --mode production game.js",
+    "serve": "serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "serve": "^9.1.0"
+  }
+}
