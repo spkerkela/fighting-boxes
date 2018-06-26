@@ -13,3 +13,7 @@ $ npm run build
 ```
 $ npm run serve
 ```
+
+## Demo
+
+https://spkerkela.github.io/fighting-boxes/
