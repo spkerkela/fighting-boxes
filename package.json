@@ -14,7 +14,7 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "ajv": "6.10.2",
+    "ajv": "6.12.3",
     "serve": "11.3.0"
   }
 }
