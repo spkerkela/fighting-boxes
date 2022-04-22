@@ -1,17 +1,22 @@
 # Fighting Boxes
 
-
 ## Installation
 
-```
+```bash
 $ npm install
 $ npm run build
 ```
 
 ## Running
 
+```bash
+$ npm run start
 ```
-$ npm run serve
+
+## Tests
+
+```bash
+$ ./run_tests.sh
 ```
 
 ## Demo
