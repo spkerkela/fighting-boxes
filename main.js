@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var db = window.localStorage;
   var dbKey = "wins";
   var winData = {};
@@ -18,11 +18,11 @@
   var globalState = {
     winner: null,
     gameOverStart: null,
-    statScreenStart: null
+    statScreenStart: null,
   };
-  var getNewID = (function() {
+  var getNewID = (function () {
     var id = 0;
-    return function() {
+    return function () {
       id++;
       return id;
     };
@@ -38,18 +38,18 @@
       color: team,
       direction: {
         x: randomInRange(0.1, 0.5),
-        y: randomInRange(0.1, 0.5)
+        y: randomInRange(0.1, 0.5),
       },
       id: getNewID(),
       position: {
         x: randomInRange(objectSize, width - objectSize),
-        y: randomInRange(objectSize, height - objectSize)
+        y: randomInRange(objectSize, height - objectSize),
       },
       size: { width: objectSize, height: objectSize },
       team: team,
       hitPoints: 10,
       heals: 3,
-      strength: Math.ceil(randomInRange(1, 3))
+      strength: Math.ceil(randomInRange(1, 3)),
     };
   }
 
@@ -63,15 +63,15 @@
         GameObject("yellow"),
         GameObject("orange"),
         GameObject("teal"),
-        GameObject("brown")
+        GameObject("brown"),
       ]);
     }
     return {
       frame: {
-        collisions: []
+        collisions: [],
       },
       objects: objects,
-      input: {}
+      input: {},
     };
   }
 
@@ -94,17 +94,17 @@
   function firstLoop(time) {
     clear();
     lastTime = time;
-    document.onkeydown = function(key) {
+    document.onkeydown = function (key) {
       key.preventDefault();
       if (!state.input[key.code]) {
         state.input[key.code] = {
           key: key,
-          pressed: Date.now()
+          pressed: Date.now(),
         };
       }
     };
 
-    document.onkeyup = function(key) {
+    document.onkeyup = function (key) {
       key.preventDefault();
       state.input[key.code] = null;
     };
@@ -182,7 +182,7 @@
         ob.position.x = width - ob.size.width;
       }
 
-      state.objects.forEach(function(ob2) {
+      state.objects.forEach(function (ob2) {
         if (ob2.id === ob.id) {
           return;
         } else if (ob2.alive && checkCollision(ob, ob2)) {
@@ -207,8 +207,6 @@
     }
   }
 
-  function updateState() {}
-
   function draw(ob) {
     if (ob.alive) {
       ctx.fillStyle = "white";
@@ -229,10 +227,10 @@
 
   function teamsLeftInAction() {
     return state.objects
-      .filter(function(ob) {
+      .filter(function (ob) {
         return ob.alive;
       })
-      .reduce(function(acc, cur) {
+      .reduce(function (acc, cur) {
         if (acc.indexOf(cur.team) === -1) {
           acc.push(cur.team);
         }
@@ -269,7 +267,7 @@
   function loop(time) {
     clear();
     resetFrameState();
-    state.objects.forEach(function(ob) {
+    state.objects.forEach(function (ob) {
       draw(ob);
     });
     if (state.input["ArrowUp"]) {
@@ -280,10 +278,9 @@
       timeScale = 1.0;
     }
     var dt = (time - lastTime) * timeScale;
-    state.objects.forEach(function(ob) {
+    state.objects.forEach(function (ob) {
       updateObject(ob, dt);
     });
-    updateState();
     lastTime = time;
     var teamsLeft = teamsLeftInAction();
     if (teamsLeft.length !== 1) {
