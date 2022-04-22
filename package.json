@@ -2,9 +2,9 @@
   "name": "game",
   "version": "1.0.0",
   "description": "",
-  "main": "game.js",
+  "main": "main.js",
   "scripts": {
-    "build": "webpack --mode production game.js",
+    "build": "webpack",
     "test": "playwright test",
     "start": "serve"
   },
@@ -12,12 +12,13 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.21.1",
+    "html-webpack-plugin": "^5.5.0",
     "playwright": "^1.21.1",
-    "webpack": "4.41.5",
-    "webpack-cli": "3.3.10"
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "ajv": "6.12.3",
+    "ajv": "^6.12.3",
     "serve": "^13.0.2"
   }
 }
